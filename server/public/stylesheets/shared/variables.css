@@ -1,0 +1,7 @@
+:root {
+    --color-bkg-primary: hsl(45, 29%, 97%);
+    --color-grey-highlight: #666666;
+    --color-input-field-bkg-hover: #F5F5F5;
+    --color-white: #ffffff;
+    --font-secondary: 'Nunito';
+}

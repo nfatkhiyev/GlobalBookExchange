@@ -12,10 +12,10 @@ const booksRouter = require('./routes/book-router');
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
-app.set('layout', 'layouts/layout');
+app.set('layout', 'layouts/interiorPageLayout', 'layouts/indexLayout');
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}));
-app.use(express.static('/public'));
+app.use(express.static('server/public'));
 
 const mongoose = require('mongoose');
 

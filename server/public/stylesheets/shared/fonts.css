@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'EB_Garamond';
+    font-style: normal;
+    src: url('/fonts/EB_Garamond/EBGaramond-VariableFont_wght.woff2') format('woff2'),
+        url('/fonts/EB_Garamond/EBGaramond-VariableFont_wght.woff') format('woff'),
+        url('/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 999;
+}
+
+@font-face {
+    font-family: 'EB_Garamond';
+    font-style: italic;
+    src: url('/fonts/EB_Garamond/EBGaramond-Italic-VariableFont_weight.woff2') format('woff2'),
+        url('/fonts/EB_Garamond/EBGaramond-Italic-VariableFont_weight.woff') format('woff'),
+        url('/fonts/EB_Garamond/EBGaramond-Italic-VariableFont_weight.ttf') format('truetype');
+    font-weight: 1 999;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    src: url('/fonts/Nunito/Nunito-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 999;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: italic;
+    src: url('/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 999;
+}

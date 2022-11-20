@@ -21,7 +21,15 @@ router.get('/find-by-isbn', (req, res) => {
         .then(data => {
             if(data.totalItems > 0){
                 const bookInfo = data.items[0].volumeInfo;
-                res.send(bookInfo.title + bookInfo.description);
+                const params = {
+                    title: bookInfo.title,
+                    author: bookInfo.author,
+                    publisher: bookInfo.publisher,
+                    publishedDate: bookInfo.publishedDate,
+                    description: bookInfo.description,
+                    thumbnailLink: bookInfo.imageLinks.thumbnail,
+                }
+                res.json(params);
             }
             else{
                 res.send('No Books Found.');

@@ -1,4 +1,7 @@
 node_modules/
 server/db/data/
+server/public/fonts/
+server/.DS_Store
+.DS_Store
 .env
 Dockerfile

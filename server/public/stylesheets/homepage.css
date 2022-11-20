@@ -1,0 +1,40 @@
+@import 'shared/fonts.css';
+@import 'shared/variables.css';
+
+#homepage-inner-container {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+}
+
+#homepage-logo {
+    margin: auto;
+    font-family: 'EB_Garamond';
+    font-weight: 100;
+    font-size: 600%;
+    padding: 1%;
+    text-align: center;
+}
+
+#homepage-search-container {
+    margin: auto;
+    padding: 1%;
+}
+
+#homepage-search-input {
+    width: 35%;
+    padding: 0.5%;
+    padding-left: 1%;
+    font-size: 120%;
+    border: 1.5px solid var(--color-grey-highlight);
+    border-radius: 1.3em;
+}
+
+#homepage-search-button {
+    margin-left: 1%;
+}

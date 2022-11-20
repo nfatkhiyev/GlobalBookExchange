@@ -1,0 +1,77 @@
+@import 'shared/fonts.css';
+@import 'shared/variables.css';
+@import 'homepage.css';
+@import 'shared/navigation.css';
+
+html, body {
+    background: var(--color-bkg-primary);
+    height: 100%;
+    margin:0;
+    font-family: var(--font-secondary);
+}
+
+.full-page-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a, input, button {
+    font-family: var(--font-secondary);
+}
+
+a:hover, a:active, a:visited, a:link {
+    text-decoration: none;
+}
+
+input[type=text]:focus {
+    outline-offset: none;
+    outline: 0.1px solid var(--color-grey-highlight);
+}
+
+input[type=text]:hover {
+    background: var(--color-input-field-bkg-hover);
+}
+
+.primary-grey-button {
+    background: var(--color-grey-highlight);
+    color: var(--color-white);
+    border: 1.5px solid var(--color-grey-highlight);
+    font-size: 120%;
+    padding: 0.5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 1.3em;
+    transition-duration: 0.4s;
+}
+
+.primary-grey-button:hover {
+    background: var(--color-bkg-primary);
+    color: var(--color-grey-highlight);
+    border: 1.5px solid var(--color-grey-highlight);
+    outline: 0.1px solid var(--color-grey-highlight);
+    transition-duration: 0.4s;
+}
+
+.primary-white-button {
+    background: var(--color-bkg-primary);
+    color: var(--color-grey-highlight);
+    border: 1.5px solid var(--color-grey-highlight);
+    font-size: 120%;
+    padding: 0.5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 1.3em;
+    transition-duration: 0.4s;
+}
+
+.primary-white-button:hover {
+    background: var(--color-grey-highlight);
+    color: var(--color-white);
+    border: 1.5px solid var(--color-grey-highlight);
+    outline: 0.1px solid var(--color-grey-highlight);
+    transition-duration: 0.4s;
+}
