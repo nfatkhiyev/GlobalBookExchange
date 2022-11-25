@@ -1,0 +1,14 @@
+.form-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.2vw;
+    width: 100%;
+    font-size: 2.5vw;
+}
+
+.form-line-container {
+    display: flex;
+    margin: 1vw;
+    width: 100%;
+}

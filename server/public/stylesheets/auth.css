@@ -1,0 +1,11 @@
+@import 'shared/variables.css';
+
+.auth-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5vw;
+    border-radius: 2vw;
+    border: 0.1vw solid  var(--color-grey-highlight);
+}

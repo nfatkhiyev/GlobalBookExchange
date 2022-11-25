@@ -1,14 +1,27 @@
-nav {
-    padding: 2.5%;
-    padding-top: 2%;
-}
-#index-nav {
-    text-align: right;
+header, nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
-#index-nav a {
-    display: inline-block;
-    min-width: 70px;
+.button-nav {
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: overlay;
+    padding: 1.3%;
+    align-items: center;
+}
+
+.button-nav a {
+    min-width: 5%;
     margin-left: 1%;
     text-align: center;
+}
+
+.nav-logo {
+    display: inline-block;
+    margin-right: auto;
+    font-family: 'EB_Garamond';
+    font-size: 2.25vw;
+    padding-left: 1.5%
 }

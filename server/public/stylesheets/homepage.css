@@ -2,39 +2,75 @@
 @import 'shared/variables.css';
 
 #homepage-inner-container {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: auto;
     padding: 5px;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
 #homepage-logo {
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; 
+    /*border-right: .05em solid black; /* The typwriter cursor*/
+    /*margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     font-family: 'EB_Garamond';
     font-weight: 100;
-    font-size: 600%;
-    padding: 1%;
+    font-size: 6.4vw;
+    margin: 1%;
     text-align: center;
+    /*animation: 
+        typing 5s steps(20, end),
+        blink-caret 1s step-end infinite;*/
 }
 
+/*
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  */
+  /* The typewriter cursor effect */
+  /*
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+  }
+  */
+  
+
 #homepage-search-container {
-    margin: auto;
-    padding: 1%;
+    margin: 1%;
+    width: 100%;
 }
 
 #homepage-search-input {
-    width: 35%;
+    width: 65%;
     padding: 0.5%;
-    padding-left: 1%;
-    font-size: 120%;
+    padding-left: 2%;
+    font-size: 1.3vw;
     border: 1.5px solid var(--color-grey-highlight);
-    border-radius: 1.3em;
+    border-radius: 2vw;
 }
 
 #homepage-search-button {
     margin-left: 1%;
+}
+
+#homepage-primary-buttons {
+    display: flex;
+    margin: 3.5%;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3%;
+}
+
+#homepage-primary-buttons a {
+    min-width: 12%;
 }

@@ -1,13 +1,22 @@
 @import 'shared/fonts.css';
 @import 'shared/variables.css';
 @import 'homepage.css';
+@import 'auth.css';
 @import 'shared/navigation.css';
+@import 'shared/form.css';
 
 html, body {
     background: var(--color-bkg-primary);
-    height: 100%;
-    margin:0;
     font-family: var(--font-secondary);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .full-page-container {
@@ -19,7 +28,7 @@ html, body {
     padding: 0;
 }
 
-a, input, button {
+a, input, button, label {
     font-family: var(--font-secondary);
 }
 
@@ -40,10 +49,10 @@ input[type=text]:hover {
     background: var(--color-grey-highlight);
     color: var(--color-white);
     border: 1.5px solid var(--color-grey-highlight);
-    font-size: 120%;
-    padding: 0.5%;
-    padding-left: 1%;
-    padding-right: 1%;
+    font-size: 1.3vw;
+    padding: 0.4vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
     border-radius: 1.3em;
     transition-duration: 0.4s;
 }
@@ -60,10 +69,10 @@ input[type=text]:hover {
     background: var(--color-bkg-primary);
     color: var(--color-grey-highlight);
     border: 1.5px solid var(--color-grey-highlight);
-    font-size: 120%;
-    padding: 0.5%;
-    padding-left: 1%;
-    padding-right: 1%;
+    font-size: 1.3vw;
+    padding: 0.4vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
     border-radius: 1.3em;
     transition-duration: 0.4s;
 }
