@@ -5,10 +5,6 @@ const bookSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    serializer: {
-        type: String,
-        required: true,
-    },
     title: {
         type: String,
         required: true,
@@ -18,14 +14,14 @@ const bookSchema = new mongoose.Schema({
         required: true,
     },
     source_users: {
-        type: Array,
+        type: [String],
         required: true,
     },
     available: {
         type: Boolean,
         required: true,
     },
-    thumbnail_hash: {
+    thumbnailLink: {
         type: String,
         required: true,
     },

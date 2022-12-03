@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({path:'./.env'});
-};
+}
 
 const connectToDatabasae = () => {
-
 
     mongoose.connect(process.env.DATABASE_URI, {
         useNewUrlParser: true

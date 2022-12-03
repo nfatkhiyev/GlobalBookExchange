@@ -1,0 +1,19 @@
+<form class="auth-inner-container" name="login-container" id="lognin-container" method="POST" action="/auth/login">
+    <div class="form-header" id="login-label">Enter Credentials</div>
+    <div class="form-line-container">
+        <label class="form-label" for="loginEmailInput">Email*:</label>
+        <input class="form-field-text" name="loginEmailInput" id="loginEmailInput" type="text"
+            placeholder="ex. example@example.com" required autofocus>
+    </div>
+    <div class="form-line-container">
+        <label class="form-label" for="loginPasswordInput">Password*:</label>
+        <input class="form-field-text" name="loginPasswordInput" id="loginPasswordInput" type="password"
+            placeholder="Enter password" required>
+    </div>
+    <% if(error) {%>
+    <div class="form-error-line" id="login-error-line"><%= error %></div>
+    <% } %>
+    <div class="form-button-line">
+        <input id="login-button" class="primary-grey-button" type="submit" value="Login">
+    </div>
+</form>

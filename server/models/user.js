@@ -49,7 +49,9 @@ const userSchema = new mongoose.Schema({
         type: nameSchema,
         required: true,
     },
-    address: addressSchema,
+    address: {
+        type: addressSchema,
+    }
 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -1,10 +1,3 @@
-function showElem(id) {
-    document.getElementById(id).style.display = "initial";
-}
-
-function hideElem(id) {
-    document.getElementById(id).style.display = "none";
-}
 
 function findBookAdd (isbn) {
     fetch('/books/find-by-isbn?isbn=' + isbn, {
