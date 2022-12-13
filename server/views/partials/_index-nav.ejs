@@ -1,15 +1,18 @@
 <header>
     <nav>
-        <% if(locals.user == 'unauthorized') { %>
-        <div class="button-nav" id="index-nav">
-            <a class="primary-grey-button" href="/auth/login">Login</a>
-            <a class="primary-white-button" href="/auth/sign-up">Sign Up</a>
+        <div class="left">
+            <a href="/about" class="primary-white-button homepage-learn-more">Learn More</a>
+            <a href="/books/" class="primary-white-button homepage-all-books">Show All</a>
         </div>
-        <% } else { %>
-        <div class="button-nav" id="index-nav">
-            <a class="primary-grey-button" href="">My Profile</a>
-            <a class="primary-white-button" href="/auth/logout">Logout</a>
+        
+        <div class="right">
+            <% if(locals.user == 'unauthorized') { %>
+                <a class="primary-grey-button" href="/auth/login">Login</a>
+                <a class="primary-white-button" href="/auth/sign-up">Sign Up</a>
+            <% } else { %>
+                <a class="primary-grey-button" href="">My Profile</a>
+                <a class="primary-white-button" href="/auth/logout">Logout</a>
+            <% } %>
         </div>
-        <% } %>
     </nav>
 </header>
