@@ -8,9 +8,9 @@
 html, body {
     background: var(--color-bkg-primary);
     font-family: var(--font-secondary);
-    height: 100%;
-    width: 100%;
-    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    margin: 0em;
 }
 
 body {
@@ -36,29 +36,18 @@ a:hover, a:active, a:visited, a:link {
     text-decoration: none;
 }
 
-input[type=text]:focus {
-    outline-offset: none;
-    outline: 0.1px solid var(--color-grey-highlight);
-}
-
-input[type=text]:hover {
-    background: var(--color-input-field-bkg-hover);
-}
-
 .primary-grey-button {
     background: var(--color-grey-highlight);
     color: var(--color-white);
     border: 1.5px solid var(--color-grey-highlight);
-    font-size: 1.3vw;
-    padding: 0.4vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    font-size: 1rem;
+    padding: 5px 10px 5px;
     border-radius: 1.3em;
     transition-duration: 0.4s;
 }
 
 .primary-grey-button:hover {
-    background: var(--color-bkg-primary);
+    background: var(--color-white);
     color: var(--color-grey-highlight);
     border: 1.5px solid var(--color-grey-highlight);
     outline: 0.1px solid var(--color-grey-highlight);
@@ -66,13 +55,11 @@ input[type=text]:hover {
 }
 
 .primary-white-button {
-    background: var(--color-bkg-primary);
+    background: var(--color-white);
     color: var(--color-grey-highlight);
     border: 1.5px solid var(--color-grey-highlight);
-    font-size: 1.3vw;
-    padding: 0.4vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    font-size: 1rem;
+    padding: 5px 10px 5px;
     border-radius: 1.3em;
     transition-duration: 0.4s;
 }
