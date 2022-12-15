@@ -5,23 +5,27 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: './.
 module.exports = (req, res, next) => {
     const token = req.cookies.authToken;
     if (!token) {
-        req.user = 'unauthorized';
-        req.errorMessage = 'No Token'
+        res.locals.user = 'unauthorized';
+        res.locals.errorMessage = 'No Token'
         console.log('no token')
         next();
         return;
     }
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded.user;
-        console.log(req.user)
+        res.locals.user = decoded.user;
+        console.log(res.locals.user)
         next();
     } catch (e) {
-        //console.error(e);
-        req.user = 'unauthorized';
-        req.errorMessage = 'Invalid Token'
-        req.authError = e;
-        console.log(req.user)
+        if(e instanceof TokenExpiredError){
+            res.clearCookie('authToken');
+            console.log('cookie cleared')
+        }
+        console.error(e);
+        res.locals.user = 'unauthorized';
+        res.locals.errorMessage = 'Invalid Token'
+        res.locals.authError = e;
+        console.log(res.locals.user)
         next();
     }
 };
