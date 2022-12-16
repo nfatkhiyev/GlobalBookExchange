@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
         console.log(res.locals.user)
         next();
     } catch (e) {
-        if(e instanceof TokenExpiredError){
+        if(e instanceof jwt.TokenExpiredError){
             res.clearCookie('authToken');
             console.log('cookie cleared')
         }

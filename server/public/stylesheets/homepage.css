@@ -59,6 +59,11 @@
     border-radius: 2vw;
 }
 
+#homepage-search-input:focus {
+    outline: none;
+    text-decoration: none;
+}
+
 #homepage-search-button {
     margin-left: 1%;
 }
