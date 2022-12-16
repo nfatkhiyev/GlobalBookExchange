@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 //return login page
 router.get('/login', (req, res) => {
-    if (req.user != 'unauthorized') {
+    if (res.locals.user != 'unauthorized') {
         res.render('auth/login', { layout: 'layouts/authPageLayout', error: 'Already Logged In', });
     } else {
         res.render('auth/login', { layout: 'layouts/authPageLayout', error: '', });
@@ -34,7 +34,7 @@ router.post('/login', [
         const validationErrors = validationResult(req);
         if (!validationErrors.isEmpty()) {
             return res.stats(400).json({
-                erros: validationErrors.array(),
+                errors: validationErrors.array(),
             });
         }
         const email = req.body.loginEmailInput;

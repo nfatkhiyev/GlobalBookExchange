@@ -1,19 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
+const authMiddleware = require('../middleware/authMiddleware')
+
 router.get('/', (req, res) => {
     res.render('books/index');
 });
 
-router.post('/add', (req, res) => {
+router.post('/add', authMiddleware, (req, res) => {
     res.send('Book Added');
 });
 
-router.get('/find-by-isbn', (req, res) => {
+router.get('/find-by-isbn', authMiddleware, (req, res) => {
     const url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + req.query['isbn'];
-    const request = new Request(url, {
-        method: 'GET',
-    });
     fetch(url, {
         method: 'GET',
     })
@@ -28,10 +27,9 @@ router.get('/find-by-isbn', (req, res) => {
                     publishedDate: bookInfo.publishedDate,
                     description: bookInfo.description,
                     thumbnailLink: bookInfo.imageLinks.thumbnail,
-                }
+                };
                 res.json(params);
-            }
-            else{
+            } else {
                 res.send('No Books Found.');
             }
         })
