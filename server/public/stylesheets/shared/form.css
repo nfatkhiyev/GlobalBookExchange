@@ -4,13 +4,29 @@
     align-items: center;
     margin: 1.2vw;
     width: 100%;
-    font-size: 2.5vw;
+    font-size: 1.5rem;
 }
 
-.form-line-container, .form-error-line {
+.form-line-container {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin: 1vw;
     width: 100%;
+}
+
+.form-line-container > * {
+    flex-grow: 1;
+}
+
+[data-lastpass-icon-root], [data-lastpass-root] {
+    display: none !important;
+}
+
+.form-field-text {
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 2px;
 }
 
 .form-error-line {

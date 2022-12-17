@@ -1,62 +1,25 @@
-<form class="auth-inner-container" name="sign-up-step-one" id="sign-up-step-one-container"
-    onsubmit="return validateSignUpStepOne(document.forms['sign-up-step-one'])" method="POST" action="/auth/sign-up">
+<form class="auth-inner-container" name="sign-up-step-one" id="sign-up-step-one-container" onsubmit="return validateSignUpStepOne(document.forms['sign-up-step-one'])" method="POST" action="/auth/sign-up" autocomplete="off">
     <div class="form-header" id="sign-up-step-one-label">Create Account</div>
     <div class="form-line-container">
-        <label class="form-label" for="signupFirstNameInput">First Name*:</label>
-        <input class="form-field-text" name="signupFirstNameInput" id="signupFirstNameInput" type="text"
-            placeholder="ex. John" required autofocus>
-        <label class="form-label" for="signupLastNameInput">Last Name*:</label>
-        <input class="form-field-text" name="signupLastNameInput" id="signupLastNameInput" type="text"
-            placeholder="ex. Doe" required>
+        <input class="form-field-text" name="signupFirstNameInput" id="signupFirstNameInput" type="text" placeholder="First Name" required autofocus>
+        <input class="form-field-text" name="signupLastNameInput" id="signupLastNameInput" type="text" placeholder="Last Name" required>
     </div>
     <div class="form-line-container">
-        <label class="form-label" for="signupAddressOne">Street Address:</label>
-        <input class="form-field-text" name="signupAddressOne" id="signupAddressOne" type="text"
-            placeholder="Address Line 1" required>
+        <input class="form-field-text" name="signupAddressOne" id="signupAddressOne" type="text" placeholder="Address" required>
     </div>
     <div class="form-line-container">
-        <label class="form-label" for="signupAddressTwo">Address Line #2:</label>
-        <input class="form-field-text" name="signupAddressTwo" id="signupAddressTwo" type="text"
-            placeholder="Address Line 2">
-    </div>
-    <div class="form-line-container">
-        <label class="form-label" for="signupAddressThree">Address Line #3:</label>
-        <input class="form-field-text" name="signupAddressThree" id="signupAddressThree" type="text"
-            placeholder="Address Line 3">
-    </div>
-    <div class="form-line-container">
-        <label class="form-label" for="signupAddressFour">City Line:</label>
-        <input class="form-field-text" name="signupAddressFour" id="signupAddressFour" type="text"
-            placeholder="Address Line 4" required>
-    </div>
-    <div class="form-line-container">
-        <label class="form-label" for="signupAddressFive">Country Line:</label>
-        <input class="form-field-text" name="signupAddressFive" id="signupAddressFive" type="text"
-            placeholder="Address Line 5" required>
-    </div>
-    <div class="form-line-container">
-        <label class="form-label" for="signupEmailInput">Email*:</label>
-        <input class="form-field-text" name="signupEmailInput" id="signupEmailInput" type="text"
-            placeholder="ex. example@example.com" required>
-    </div>
-    <div class="form-line-container">
-        <label class="form-label" for="sigup-password-input">Create Password*:</label>
+        <input class="form-field-text" name="signupEmailInput" id="signupEmailInput" type="email" placeholder="Email" required>
         <input class="form-field-text" name="signupPasswordInput" id="signupPasswordInput" type="password"
-            placeholder="Type New Password" required>
-    </div>
-    <div class="form-line-container">
-        <label class="form-label" for="sigup-confirm-password-input">Re-type Password*:</label>
-        <input class="form-field-text" name="signupConfirmPasswordInput" id="signupConfirmPasswordInput" type="password"
-            placeholder="Re-type Password" required>
+            placeholder="Password" required>
     </div>
     <% if(error) {%>
         <div class="form-error-line" id="login-error-line">
             <%= error %>
         </div>
-        <% } else {%>
-            <div class="form-error-line" id="signup-step-one-error-line" style="display: none"></div>
-            <% } %>
-                <div class="form-button-line">
-                    <input id="sigup-step-one-button" class="primary-grey-button" type="submit" value="Sign Up">
-                </div>
+    <% } else {%>
+        <div class="form-error-line" id="signup-step-one-error-line" style="display: none"></div>
+    <% } %>
+    <div class="form-button-line">
+        <input id="sigup-step-one-button" class="primary-grey-button" type="submit" value="Sign Up">
+    </div>
 </form>

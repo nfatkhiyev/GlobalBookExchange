@@ -3,9 +3,13 @@
 .auth-inner-container {
     display: flex;
     flex-direction: column;
+    margin: auto;
+    padding: 100px;
     justify-content: center;
     align-items: center;
-    padding: 1.5vw;
-    border-radius: 2vw;
-    border: 0.1vw solid  var(--color-grey-highlight);
+    text-align: center;
+    width: 40vw;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255, 0.70);
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
 }
