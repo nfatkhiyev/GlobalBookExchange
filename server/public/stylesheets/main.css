@@ -2,6 +2,7 @@
 @import 'shared/variables.css';
 @import 'homepage.css';
 @import 'auth.css';
+@import 'books.css';
 @import 'shared/navigation.css';
 @import 'shared/form.css';
 
@@ -37,7 +38,7 @@ a:hover, a:active, a:visited, a:link {
 
 .primary-grey-button {
     background: var(--color-grey-highlight);
-    color: var(--color-white);
+    color: var(--color-white-button-highlight);
     border: 1.5px solid var(--color-grey-highlight);
     font-size: 1rem;
     padding: 5px 10px 5px;
@@ -46,7 +47,7 @@ a:hover, a:active, a:visited, a:link {
 }
 
 .primary-grey-button:hover {
-    background: var(--color-white);
+    background: var(--color-white-button-highlight);
     color: var(--color-grey-highlight);
     border: 1.5px solid var(--color-grey-highlight);
     outline: 0.1px solid var(--color-grey-highlight);
@@ -54,7 +55,7 @@ a:hover, a:active, a:visited, a:link {
 }
 
 .primary-white-button {
-    background: var(--color-white);
+    background: var(--color-white-button-highlight);
     color: var(--color-grey-highlight);
     border: 1.5px solid var(--color-grey-highlight);
     font-size: 1rem;
@@ -65,7 +66,7 @@ a:hover, a:active, a:visited, a:link {
 
 .primary-white-button:hover {
     background: var(--color-grey-highlight);
-    color: var(--color-white);
+    color: var(--color-white-button-highlight);
     border: 1.5px solid var(--color-grey-highlight);
     outline: 0.1px solid var(--color-grey-highlight);
     transition-duration: 0.4s;

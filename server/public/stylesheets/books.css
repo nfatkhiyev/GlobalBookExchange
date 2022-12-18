@@ -1,0 +1,14 @@
+.book-add-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+.book-add-form-wrapper form {
+    width:100%;
+}
+
+.book-input-spacer {
+    margin: 25px;
+}

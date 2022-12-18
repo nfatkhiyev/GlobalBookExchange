@@ -1,10 +1,46 @@
 <script defer src="/javascripts/addBook.js"></script>
-<div class="book-inner-container" id="add-book-container">
-    <div class="book-input-container">
-        <div class="book-form-header">By ISBN:</div>
-    </div>
+<div class="book-add-form-wrapper">
+    <form class="form-inner-container">
+        <div class="form-header">Add By ISBN Search:</div>
+        <div class="form-line-container">
+            <label class="form-label" for="addBookISBN">ISBN:</label>
+            <input class="form-field-text" name="addBookISBN" type="text" placeholder="ISBN" required autofocus>
+        </div>
+        <% if(error) {%>
+            <div class="form-error-line" id="login-error-line">
+                <%= error %>
+            </div>
+            <% } else {%>
+                <div class="form-error-line" id="signup-step-one-error-line" style="display: none"></div>
+                <% } %>
+                <div class="form-button-line">
+                    <input id="addBookISBNSubmitButton" class="primary-grey-button" type="submit" value="Search">
+                </div>
+    </form>
     <div class="book-input-spacer">- OR -</div>
-    <div class="book-input-container">
-        <div class="book-form-header">By Manual Input:</div>
-    </div>
+    <form class="form-inner-container">
+        <div class="form-header">Add By Title Search:</div>
+        <div class="form-line-container">
+            <label class="form-label" for="addBookTitle">Title:</label>
+            <input class="form-field-text" name="addBookTitle" type="text" placeholder="Book Title" required>
+        </div>
+        <div class="form-line-container">
+            <label class="form-label" for="addBookAuthor">Author (first listed):</label>
+            <input class="form-field-text" name="addBookAuthor" type="text" placeholder="Book Author" required>
+        </div>
+        <div class="form-line-container">
+            <label class="form-label" for="addBookPublishedDate">Published Date:</label>
+            <input class="form-field-text" name="addBookPublishedDate" type="date" required>
+        </div>
+        <% if(error) {%>
+            <div class="form-error-line" id="login-error-line">
+                <%= error %>
+            </div>
+            <% } else {%>
+                <div class="form-error-line" id="signup-step-one-error-line" style="display: none"></div>
+                <% } %>
+                <div class="form-button-line">
+                    <input id="addBookTitleSubmitButton" class="primary-grey-button" type="submit" value="Search">
+                </div>
+    </form>
 </div>

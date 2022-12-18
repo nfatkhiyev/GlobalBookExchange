@@ -1,20 +1,54 @@
+.form-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5vw;
+    border-radius: 1.5vw;
+    box-shadow: 0 0 5px var(--color-grey-highlight);
+    margin: auto;
+    background: var(--color-card-highlight);
+}
+
 .form-header {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1.2vw;
+    margin-top: 0;
     width: 100%;
-    font-size: 2.5vw;
+    font-size: 2.5rem;
+    font-family: var(--font-primary);
+    font-weight: 100;
 }
 
 .form-line-container, .form-error-line {
     display: flex;
     margin: 1vw;
     width: 100%;
+    align-items: center;
+}
+
+.form-label {
+    font-size: 1rem;
+}
+
+.form-field-text {
+    margin-left: auto;
+    width: 30vw;
+    height: 20px;
+    border-radius: 20px;
+    border: 1px solid grey;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .form-error-line {
     justify-content: center;
     align-items: center;
     color: red;
+}
+
+.form-button-line {
+    margin: 15px;
 }

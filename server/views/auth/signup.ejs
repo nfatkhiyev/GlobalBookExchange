@@ -1,10 +1,12 @@
-<form class="auth-inner-container" name="sign-up-step-one" id="sign-up-step-one-container"
+<form class="form-inner-container" name="sign-up-step-one" id="sign-up-step-one-container"
     onsubmit="return validateSignUpStepOne(document.forms['sign-up-step-one'])" method="POST" action="/auth/sign-up">
     <div class="form-header" id="sign-up-step-one-label">Create Account</div>
     <div class="form-line-container">
         <label class="form-label" for="signupFirstNameInput">First Name*:</label>
         <input class="form-field-text" name="signupFirstNameInput" id="signupFirstNameInput" type="text"
             placeholder="ex. John" required autofocus>
+    </div>
+    <div class="form-line-container">
         <label class="form-label" for="signupLastNameInput">Last Name*:</label>
         <input class="form-field-text" name="signupLastNameInput" id="signupLastNameInput" type="text"
             placeholder="ex. Doe" required>
@@ -53,10 +55,8 @@
         <div class="form-error-line" id="login-error-line">
             <%= error %>
         </div>
-        <% } else {%>
-            <div class="form-error-line" id="signup-step-one-error-line" style="display: none"></div>
-            <% } %>
-                <div class="form-button-line">
-                    <input id="sigup-step-one-button" class="primary-grey-button" type="submit" value="Sign Up">
-                </div>
+        <% } %>
+            <div class="form-button-line">
+                <input id="sigup-step-one-button" class="primary-grey-button" type="submit" value="Sign Up">
+            </div>
 </form>
