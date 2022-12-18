@@ -1,7 +1,11 @@
 :root {
-    --color-bkg-primary: lightgoldenrodyellow;
+    --color-bkg-primary:  #faf8f5;
+    --color-card-highlight: #FFFDFB;
+    --color-white-button-highlight: #FFFDFB;
     --color-grey-highlight: #666666;
     --color-input-field-bkg-hover: #F5F5F5;
     --color-white: #ffffff;
+    --font-logo: 'EB_Garamond';
+    --font-primary: 'EB_Garamond';
     --font-secondary: 'Nunito';
 }

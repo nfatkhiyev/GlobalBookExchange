@@ -5,8 +5,6 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 const UserModel = require('../models/user');
-const { findSourceMap } = require('module');
-const { request } = require('http');
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({ path: './.env' });
@@ -19,6 +17,13 @@ router.get('/login', (req, res) => {
     } else {
         res.render('auth/login', { layout: 'layouts/authPageLayout', error: '', });
     }
+});
+
+//logout and redirect to homepage
+router.get('/logout', (req, res) => {
+    res.clearCookie('authToken');
+    res.locals.user = 'unauthorized';
+    res.status(200).redirect('/');
 });
 
 //return sign-up page

@@ -1,7 +1,12 @@
 nav{
     display: flex;
-    margin: 8px;
+    padding: 8px;
     box-sizing: border-box;
+    position: fixed;
+    min-height: 3.938rem;
+    width : 100%;
+    top: 0;
+    align-items: center;
 }
 
 .left {
@@ -19,6 +24,11 @@ nav{
 
 .right > *:not(:first-child) {
     margin-left: 10px;
+}
+
+.nav-logo {
+    font-family: var(--font-logo);
+    font-size: 1.5rem;
 }
 
 /* header, nav {

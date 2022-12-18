@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
     res.render('books/index');
 });
 
+router.get('/add', authMiddleware, (req, res) => {
+    res.render('books/add', { layout: 'layouts/formPageLayout', error: '', });
+});
+
 router.post('/add', authMiddleware, (req, res) => {
     res.send('Book Added');
 });
@@ -30,7 +34,7 @@ router.get('/find-by-isbn', authMiddleware, (req, res) => {
                 };
                 res.json(params);
             } else {
-                res.send('No Books Found.');
+                res.render('books/add', { layout: 'layouts/fromPageLayout', error: 'No Books Found.'});
             }
         })
         .catch(error => console.log(error));

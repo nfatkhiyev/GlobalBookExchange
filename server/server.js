@@ -14,7 +14,7 @@ const authRouter = require('./routes/authRouter');
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
-app.set('layout', 'layouts/interiorPageLayout', 'layouts/indexLayout', 'layouts/authPageLayout');
+app.set('layout', 'layouts/interiorPageLayout', 'layouts/indexLayout', 'layouts/formPageLayout', 'layouts/authPageLayout');
 app.use(expressLayouts);
 app.use(express.json());
 app.use(expressSession ({

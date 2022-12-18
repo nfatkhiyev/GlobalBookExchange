@@ -1,6 +1,18 @@
 <header>
     <nav>
-        <div id="interior-nav">
+        <div class="left">
+            <a href="/" class="primary-grey-button homepage-learn-more">Home</a>
+            <a href="/books/search" class="primary-white-button homepage-all-books">Search Books</a>
+        </div>
+        
+        <div class="right">
+            <% if(locals.user == 'unauthorized') { %>
+                <a class="primary-white-button" href="/auth/sign-up">Sign Up</a>
+                <a class="primary-grey-button" href="/auth/login">Login</a>
+            <% } else { %>
+                <a class="primary-white-button" href="/auth/logout">Logout</a>
+                <a class="primary-grey-button" href="">My Profile</a>
+            <% } %>
         </div>
     </nav>
 </header>
