@@ -1,0 +1,28 @@
+<div class="book-card-wrapper">
+    <div class="book-card-thumbnail">
+        <img src="<%= book.thumbnailLink %>" alt="<%= book.title %>">
+    </div>
+    <div class="book-card-details">
+        <p class="book-card-title">
+            <%= book.title %>
+        </p>
+            <p class="book-card-authors">
+        <% for(let authorIndex in book.authors) {%>
+                <%= book.authors[authorIndex] %>
+                <br>
+            <% } %>
+            </p>
+                <p class="book-card-publisher">
+                    <%= book.publisher %>
+                </p>
+                <p class="book-card-published-date">
+                    <%= book.publishedDate %>
+                </p>
+                <!-- <p class="book-card-description">
+                    <%= book.description %>
+                </p> -->
+                <div class="book-card-button">
+                    <button type="button" class="primary-grey-button">Select</button>
+                </div>
+    </div>
+</div>

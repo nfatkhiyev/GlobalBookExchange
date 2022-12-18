@@ -1,0 +1,14 @@
+<div class="book-grid-page-wrapper">
+    <div class="book-grid-page-header">
+        Select a Book to Add
+    </div>
+    <div class="book-grid">
+    <% for(let bookIndex in bookList.bookData) { %>
+        <% let book = bookList.bookData[bookIndex]; %>
+        <%- include('../partials/_add-book-card.ejs', { book: book }) %>
+    <% } %>
+    </div>
+    <div class="add-book-manual-button">
+        <a class="primary-grey-button">Book Not Listed</a>
+    </div>
+</div>

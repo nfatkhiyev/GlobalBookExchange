@@ -5,6 +5,7 @@
 @import 'books.css';
 @import 'shared/navigation.css';
 @import 'shared/form.css';
+@import 'shared/card.css';
 
 html, body {
     background: var(--color-bkg-primary);

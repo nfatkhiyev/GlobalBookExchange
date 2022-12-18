@@ -1,0 +1,19 @@
+.book-card-wrapper {
+    flex: 1 1 300px;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-card-highlight);
+    border-radius: 1.5vw;
+    box-shadow: 0 0 5px var(--color-grey-highlight);
+}
+
+.book-card-wrapper p{
+    text-align: center;
+}
+
+.book-card-button {
+    text-align: center;
+    margin: 25px;
+}

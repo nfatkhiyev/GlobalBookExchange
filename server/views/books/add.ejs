@@ -1,14 +1,14 @@
 <script defer src="/javascripts/addBook.js"></script>
 <div class="book-add-form-wrapper">
-    <form class="form-inner-container">
+    <form class="form-inner-container" action="/books/add-by-isbn">
         <div class="form-header">Add By ISBN Search:</div>
         <div class="form-line-container">
             <label class="form-label" for="addBookISBN">ISBN:</label>
             <input class="form-field-text" name="addBookISBN" type="text" placeholder="ISBN" required autofocus>
         </div>
-        <% if(error) {%>
+        <% if(errorISBN) {%>
             <div class="form-error-line" id="login-error-line">
-                <%= error %>
+                <%= errorISBN %>
             </div>
             <% } else {%>
                 <div class="form-error-line" id="signup-step-one-error-line" style="display: none"></div>
@@ -18,7 +18,7 @@
                 </div>
     </form>
     <div class="book-input-spacer">- OR -</div>
-    <form class="form-inner-container">
+    <form class="form-inner-container" action="/books/add-by-title">
         <div class="form-header">Add By Title Search:</div>
         <div class="form-line-container">
             <label class="form-label" for="addBookTitle">Title:</label>
@@ -30,11 +30,11 @@
         </div>
         <div class="form-line-container">
             <label class="form-label" for="addBookPublishedDate">Published Date:</label>
-            <input class="form-field-text" name="addBookPublishedDate" type="date" required>
+            <input class="form-field-text" name="addBookPublishedDate" type="date">
         </div>
-        <% if(error) {%>
+        <% if(errorTitle) {%>
             <div class="form-error-line" id="login-error-line">
-                <%= error %>
+                <%= errorTitle %>
             </div>
             <% } else {%>
                 <div class="form-error-line" id="signup-step-one-error-line" style="display: none"></div>
