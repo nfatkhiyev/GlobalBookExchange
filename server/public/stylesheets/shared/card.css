@@ -1,5 +1,5 @@
 .book-card-wrapper {
-    flex: 1 1 300px;
+    flex: 0 0 300px;
     margin: 25px;
     display: flex;
     flex-direction: column;
@@ -7,10 +7,27 @@
     background: var(--color-card-highlight);
     border-radius: 1.5vw;
     box-shadow: 0 0 5px var(--color-grey-highlight);
+    padding-top: 5%;
 }
 
-.book-card-wrapper p{
+.book-card-thumbnail {
+    display: flex;
+    min-height: 218px;
+    margin: auto;
+}
+
+.book-card-details>p{
     text-align: center;
+}
+
+.book-card-details {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.book-card-publisher {
+    margin-top: auto;
 }
 
 .book-card-button {

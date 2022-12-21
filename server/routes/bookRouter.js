@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const BookModel = require('../models/book');
+
 const authMiddleware = require('../middleware/authMiddleware')
 
 router.get('/', (req, res) => {
@@ -12,6 +14,16 @@ router.get('/add', authMiddleware, (req, res) => {
 });
 
 router.post('/add', authMiddleware, (req, res) => {
+    const url = 'https://googleapis.com/v1/volumes/' + req.body.bookID;
+    fetch(url, {
+        method: 'GET',
+    })
+        .then(resp => resp.json())
+        .then(data => {
+            if (data) {
+                
+            }
+        })
     res.send('Book Added');
 });
 
@@ -27,8 +39,8 @@ router.get('/add-by-isbn', authMiddleware, (req, res) => {
                     totalBooks: data.totalItems,
                     bookData: [],
                 };
-                for (let book in data.items) {
-                    const bookInfo = book.volumeInfo;
+                for (let bookIndex in data.items) {
+                    const bookInfo = data.items[bookIndex].volumeInfo;
                     const params = {
                         title: bookInfo.title,
                         author: bookInfo.authors,
@@ -36,6 +48,7 @@ router.get('/add-by-isbn', authMiddleware, (req, res) => {
                         publishedDate: bookInfo.publishedDate,
                         description: bookInfo.description,
                         thumbnailLink: bookInfo.imageLinks.thumbnail,
+                        identifier: data.items[bookIndex].id,
                     };
                     bookListData.bookData.push(params);
                 }
@@ -48,7 +61,7 @@ router.get('/add-by-isbn', authMiddleware, (req, res) => {
 });
 
 router.get('/add-by-title', authMiddleware, (req, res) => {
-    const url = 'https://www.googleapis.com/books/v1/volumes?q=intitle:"' + req.query['addBookTitle'] + '"inauthor:"' + req.query['addBookAuthor'] + '"&printType=books';
+    const url = 'https://www.googleapis.com/books/v1/volumes?q=inauthor:' + req.query['addBookAuthor'] + '+intitle:' + req.query['addBookTitle'] + '&printType=books';
     fetch(url, {
         method: 'GET',
     })
@@ -61,13 +74,15 @@ router.get('/add-by-title', authMiddleware, (req, res) => {
                 };
                 for (let bookIndex in data.items) {
                     const bookInfo = data.items[bookIndex].volumeInfo;
+                    if (!bookInfo.authors.includes(req.query['addBookAuthor'])) continue;
                     const params = {
                         title: bookInfo.title,
                         authors: bookInfo.authors,
-                        publisher: bookInfo.publisher,
-                        publishedDate: bookInfo.publishedDate,
-                        description: bookInfo.description,
+                        publisher: (bookInfo.publisher?bookInfo.publisher:'Unavailable'),
+                        publishedDate: (bookInfo.publishedDate?bookInfo.publishedDate: 'Unavailable'),
+                        description: (bookInfo.description?bookInfo.description:'Unavailable'),
                         thumbnailLink: (bookInfo.imageLinks?bookInfo.imageLinks.thumbnail:''),
+                        identifier: data.items[bookIndex].id,
                     };
                     bookListData.bookData.push(params);
                 }
