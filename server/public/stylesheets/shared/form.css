@@ -17,13 +17,15 @@
     margin: 1.2vw;
     margin-top: 0;
     width: 100%;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-family: var(--font-primary);
     font-weight: 100;
 }
 
-.form-line-container, .form-error-line {
+.form-line-container {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin: 1vw;
     width: 100%;
     align-items: center;
@@ -43,12 +45,22 @@
     padding-right: 10px;
 }
 
+.form-line-container > * {
+    flex-grow: 1;
+}
+
+[data-lastpass-icon-root], [data-lastpass-root] {
+    display: none !important;
+}
+
+.form-field-text {
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 2px;
+}
+
 .form-error-line {
     justify-content: center;
     align-items: center;
     color: red;
-}
-
-.form-button-line {
-    margin: 15px;
 }
