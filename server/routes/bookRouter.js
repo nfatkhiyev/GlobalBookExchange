@@ -3,7 +3,8 @@ const router = express.Router();
 
 const BookModel = require('../models/book');
 
-const authMiddleware = require('../middleware/authMiddleware')
+const authMiddleware = require('../middleware/authMiddleware');
+const book = require('../models/book');
 
 router.get('/', (req, res) => {
     res.render('books/index');
@@ -19,9 +20,40 @@ router.post('/add', authMiddleware, (req, res) => {
         method: 'GET',
     })
         .then(resp => resp.json())
-        .then(data => {
-            if (data) {
-                
+        .then(async data => {
+            try {
+                const bookInfo = data.volumeInfo;
+                const userID = res.locals.userID;
+                const update = { $push: { sourceUsers: userID } };
+                let book = await BookModel.findOneAndUpdate({
+                    bookDetails: {
+                        isbn: bookInfo.isbn,
+                        title: bookInfo.title,
+                        authors: bookInfo.authors,
+                        publisher: bookInfo.publisher,
+                        publishedDate: bookInfo.publishedDate,
+                    },
+                }, update, {
+                    new: true,
+                });
+                if (!book) {
+                    newBook = new BookModel({
+                        sourceUsers: userID,
+                        bookDetails: {
+                            isbn: bookInfo.isbn,
+                            title: bookInfo.title,
+                            authors: bookInfo.authors,
+                            publisher: bookInfo.publisher,
+                            publishedDate: bookInfo.publishedDate,
+                            description: bookInfo.description
+                        }
+                    });
+                    await newBook.save();
+                }
+                res.status(200).redirect('/profile/');
+            }
+            catch (e) {
+
             }
         })
     res.send('Book Added');
@@ -78,10 +110,10 @@ router.get('/add-by-title', authMiddleware, (req, res) => {
                     const params = {
                         title: bookInfo.title,
                         authors: bookInfo.authors,
-                        publisher: (bookInfo.publisher?bookInfo.publisher:'Unavailable'),
-                        publishedDate: (bookInfo.publishedDate?bookInfo.publishedDate: 'Unavailable'),
-                        description: (bookInfo.description?bookInfo.description:'Unavailable'),
-                        thumbnailLink: (bookInfo.imageLinks?bookInfo.imageLinks.thumbnail:''),
+                        publisher: (bookInfo.publisher ? bookInfo.publisher : 'Unavailable'),
+                        publishedDate: (bookInfo.publishedDate ? bookInfo.publishedDate : 'Unavailable'),
+                        description: (bookInfo.description ? bookInfo.description : 'Unavailable'),
+                        thumbnailLink: (bookInfo.imageLinks ? bookInfo.imageLinks.thumbnail : ''),
                         identifier: data.items[bookIndex].id,
                     };
                     bookListData.bookData.push(params);

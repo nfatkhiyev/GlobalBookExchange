@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const bookDetailSchema = new mongoose.Schema({
     isbn: {
         type: String,
-        required: false,
+        required: true,
     },
     thumbnailLink: {
         type: String,
-        required: false,
+        required: true,
     },
     title: {
         type: String,
@@ -19,20 +19,23 @@ const bookDetailSchema = new mongoose.Schema({
     },
     publisher: {
         type: String,
-        required: false,
+        required: true,
     },
     publishedDate: {
         type: String,
-        required: false,
+        required: true,
     },
     description: {
         type: String,
         required: false,
     },
+},
+{
+    _id:false,
 });
 
 const bookSchema = new mongoose.Schema({
-    source_users: {
+    sourceUsers: {
         type: [String],
         required: true,
     },
