@@ -1,7 +1,7 @@
 .form-inner-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 30px;
     border-radius: 30px;
@@ -29,10 +29,7 @@
     margin: 1vw;
     width: 100%;
     align-items: center;
-}
-
-.form-line-container > *:not(:first-child){
-    margin-left: 25px;
+    gap: 10px;
 }
 
 .form-line-container > * {
