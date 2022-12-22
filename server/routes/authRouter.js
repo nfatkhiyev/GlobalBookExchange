@@ -38,9 +38,8 @@ router.post('/login', [
         //login
         const validationErrors = validationResult(req);
         if (!validationErrors.isEmpty()) {
-            return res.stats(400).json({
-                errors: validationErrors.array(),
-            });
+            // TODO: Validation errors needs to change to something else so not array
+            return res.render('auth/login', { layout: 'layouts/authPageLayout', error: validationErrors.array() });
         }
         const email = req.body.loginEmailInput;
         const password = req.body.loginPasswordInput;
@@ -50,7 +49,7 @@ router.post('/login', [
                 email: email,
             });
 
-            if (!user) return res.status(400).json({ message: "User Does Not Exist" });
+            if (!user) return res.render('auth/login', { layout: 'layouts/authPageLayout', error: 'User Does Not Exist' });
 
             bcrypt.compare(password, user.passwordHash, (err, bres) => {
                 if (err) {
@@ -101,9 +100,8 @@ router.post('/sign-up', [
     async (req, res) => {
         const validationErrors = validationResult(req);
         if (!validationErrors.isEmpty()) {
-            return res.status(400).json({
-                errors: validationErrors.array(),
-            });
+            // TODO: Validation errors needs to change to something else so not array
+            return res.render('auth/login', { layout: 'layouts/authPageLayout', error: validationErrors.array() });
         }
 
         const firstName = req.body.signupFirstNameInput;
