@@ -16,7 +16,7 @@ router.get('/add', authMiddleware, (req, res) => {
 });
 
 router.post('/add', authMiddleware, (req, res) => {
-    const url = 'https://googleapis.com/v1/volumes/' + req.body.bookID;
+    const url = 'https://www.googleapis.com/books/v1/volumes/' + req.body.bookID;
     fetch(url, {
         method: 'GET',
     })
@@ -24,11 +24,24 @@ router.post('/add', authMiddleware, (req, res) => {
         .then(async data => {
             try {
                 const bookInfo = data.volumeInfo;
+                let bookISBN = '';
+                for (let i in bookInfo.industryIdentifiers) {
+                    if (bookInfo.industryIdentifiers[i].type == 'ISBN_13') {
+                        bookISBN = bookInfo.industryIdentifiers[i].identifier;
+                        break;
+                    }
+                    else if (bookInfo.industryIdentifiers[i].type == 'ISBN_10' && (!bookISBN || bookISBN == 'N/A')) {
+                        bookISBN = bookInfo.industryIdentifiers[i].identifier;
+                    }
+                    else {
+                        bookISBN = 'N/A';
+                    }
+                }
                 const userID = res.locals.user.id;
                 const update = { $push: { sourceUsers: userID } };
                 let book = await BookModel.findOneAndUpdate({
                     bookDetails: {
-                        isbn: bookInfo.isbn,
+                        isbn: bookISBN,
                         title: bookInfo.title,
                         authors: bookInfo.authors,
                         publisher: bookInfo.publisher,
@@ -41,7 +54,8 @@ router.post('/add', authMiddleware, (req, res) => {
                     book = new BookModel({
                         sourceUsers: userID,
                         bookDetails: {
-                            isbn: bookInfo.isbn,
+                            isbn: bookISBN,
+                            thumbnailLink: (bookInfo.imageLinks.thumbnail ? bookInfo.imageLinks.thumbnail : 'No Image Available'),
                             title: bookInfo.title,
                             authors: bookInfo.authors,
                             publisher: bookInfo.publisher,
@@ -56,7 +70,7 @@ router.post('/add', authMiddleware, (req, res) => {
             }
             catch (e) {
                 console.log(e);
-                res.status(500).redirect('/add');
+                res.status(500).redirect('/books/add');
             }
         })
 });
