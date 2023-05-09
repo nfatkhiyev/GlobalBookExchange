@@ -5,7 +5,6 @@ const BookModel = require('../models/book');
 const UserModel = require('../models/user');
 
 const authMiddleware = require('../middleware/authMiddleware');
-const book = require('../models/book');
 
 router.get('/', (req, res) => {
     res.render('books/index');
@@ -94,7 +93,6 @@ router.get('/add-by-isbn', authMiddleware, (req, res) => {
                         author: bookInfo.authors,
                         publisher: bookInfo.publisher,
                         publishedDate: bookInfo.publishedDate,
-                        description: bookInfo.description,
                         thumbnailLink: bookInfo.imageLinks.thumbnail,
                         identifier: data.items[bookIndex].id,
                     };
@@ -128,7 +126,6 @@ router.get('/add-by-title', authMiddleware, (req, res) => {
                         authors: bookInfo.authors,
                         publisher: (bookInfo.publisher ? bookInfo.publisher : 'Unavailable'),
                         publishedDate: (bookInfo.publishedDate ? bookInfo.publishedDate : 'Unavailable'),
-                        description: (bookInfo.description ? bookInfo.description : 'Unavailable'),
                         thumbnailLink: (bookInfo.imageLinks ? bookInfo.imageLinks.thumbnail : ''),
                         identifier: data.items[bookIndex].id,
                     };

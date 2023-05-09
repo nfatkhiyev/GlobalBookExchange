@@ -1,0 +1,26 @@
+.profile-page-wrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 4%;
+}
+
+.profile-column-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.profile-column-section-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-column-section-header {
+    font-family: var(--font-primary);
+    font-weight: 100;
+    font-size: 1.5rem;
+}

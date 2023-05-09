@@ -1,0 +1,38 @@
+<div class="profile-page-wrapper">
+    <div class="profile-column-wrapper">
+        <div class="profile-column-header">
+            Welcome <%= userData.name.firstName %>
+        </div>
+        <div class="profile-column-section-wrapper">
+            <div class="profile-column-section-header">
+                Saved Address:
+            </div>
+            <div class="profile-column-section-content">
+                <% if(userData.address != '') { %>
+                        <% var variable = userData.address; %>
+                    <% for(line in variable) { %>
+                        <% console.log(line); %>
+                        <% if(userData.address[line] != '') { %> 
+                            <%= userData.address[line] %>
+                            <br>
+                        <% } %>
+                    <% } %>
+                    <button class="primary-grey-button">Edit</button>
+                <% } else { %>
+                    <button calss="primary-grey-button">Add New</button>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="book-grid-page-wrapper">
+        <div class="book-grid-page-header">
+            My Books
+        </div>
+        <div class="book-grid">
+            <% for(let bookIndex in bookList.bookData) { %>
+                <% let book = bookList.bookData[bookIndex]; %>
+                <%- include('../partials/_my-book-card.ejs', { book: book}) %>
+            <% } %>
+        </div>
+    </div>
+</div>

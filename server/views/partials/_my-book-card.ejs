@@ -1,0 +1,21 @@
+<div class="book-card-wrapper">
+    <div class="book-card-thumbnail">
+        <img src="<%= book.thumbnailLink %>" alt="<% book.title %>">
+    </div>
+    <div class="book-card-details">
+        <p class="book-card-title">
+            <% book.title %>
+        </p>
+        <p class="bookk-card-authors">
+            By:
+            <% for(let authorIndex in book.authors) { %>
+                <%= book.authors[authorIndex] %>
+                <br>
+            <% } %>
+        </p>
+        <form class="book-card-button" method="POST" action="/books/remove" onsubmit="return confirmBookRemoval('<%= book.title %>')">
+            <input type="hidden" name="mdbBookID" value="<%= book.identifier %>" />
+            <input type="submit" class="primary-red-button" value="Remove" />
+        </form>
+    </div>
+</div>
